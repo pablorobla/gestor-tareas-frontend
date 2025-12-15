@@ -1,0 +1,544 @@
+.home-container {
+  min-height: 100vh;
+  background: #000000;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 2px solid white;
+}
+
+.home-header h1 {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.home-header div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-header span {
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.home-header button {
+  background: white;
+  color: black;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.home-header button:hover {
+  background: black;
+  color: white;
+}
+
+.tareas-container {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tareas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tareas-header h2 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.botones-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-categorias-header {
+  background: white;
+  color: black;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-categorias-header:hover {
+  background: black;
+  color: white;
+}
+
+.ordenar-container {
+  position: relative;
+}
+
+.btn-ordenar {
+  background: white;
+  color: black;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-ordenar:hover {
+  background: black;
+  color: white;
+}
+
+.menu-ordenar {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background: #1a1a1a;
+  border: 2px solid white;
+  min-width: 200px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-ordenar button {
+  background: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 12px 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.menu-ordenar button:last-child {
+  border-bottom: none;
+}
+
+.menu-ordenar button:hover {
+  background: white;
+  color: black;
+}
+
+.btn-nueva {
+  background: white;
+  color: black;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-nueva:hover {
+  background: black;
+  color: white;
+}
+
+.form-tarea {
+  background: #1a1a1a;
+  padding: 20px;
+  border: 2px solid white;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-tarea h3 {
+  font-weight: 200;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.form-tarea input,
+.form-tarea textarea,
+.form-tarea select {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: 2px solid white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-tarea input:focus,
+.form-tarea textarea:focus,
+.form-tarea select:focus {
+  outline: none;
+  background: #1a1a1a;
+}
+
+.form-tarea textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.btn-guardar {
+  background: white;
+  color: black;
+  border: 2px solid white;
+  padding: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-guardar:hover {
+  background: black;
+  color: white;
+}
+
+.lista-tareas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sin-tareas {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-weight: 200;
+}
+
+.tarea-item {
+  background: #1a1a1a;
+  border: 2px solid white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.3s;
+}
+
+.tarea-item.completada {
+  opacity: 0.6;
+  border-color: #666;
+}
+
+.tarea-item.completada h3 {
+  text-decoration: line-through;
+}
+
+.tarea-info {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+}
+
+.tarea-info input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.tarea-info h3 {
+  font-size: 18px;
+  font-weight: 200;
+  margin-bottom: 8px;
+}
+
+.tarea-info p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 10px;
+  font-weight: 200;
+}
+
+.prioridad {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  border: 1px solid white;
+  font-weight: 200;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+
+.prioridad-alta {
+  border-color: #ff4444;
+  color: #ff4444;
+}
+
+.prioridad-media {
+  border-color: #ffaa44;
+  color: #ffaa44;
+}
+
+.prioridad-baja {
+  border-color: #44ff44;
+  color: #44ff44;
+}
+
+.fecha-limite {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 12px;
+  font-size: 12px;
+  border: 1px solid #888;
+  color: #888;
+  font-weight: 200;
+}
+
+.tarea-acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-editar {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-editar:hover {
+  background: white;
+  color: black;
+}
+
+.btn-eliminar {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-eliminar:hover {
+  background: white;
+  color: black;
+}
+
+/* MODAL DE CATEGORÍAS */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border: 2px solid white;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid white;
+}
+
+.modal-header h2 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.btn-cerrar-modal {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.btn-cerrar-modal:hover {
+  background: white;
+  color: black;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.form-categoria-modal {
+  background: black;
+  padding: 20px;
+  border: 2px solid white;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-categoria-modal h4 {
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.form-categoria-modal input {
+  width: 100%;
+  padding: 12px;
+  background: #1a1a1a;
+  color: white;
+  border: 2px solid white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-categoria-modal input:focus {
+  outline: none;
+  background: #2a2a2a;
+}
+
+.btn-crear-categoria {
+  background: white;
+  color: black;
+  border: 2px solid white;
+  padding: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-crear-categoria:hover {
+  background: black;
+  color: white;
+}
+
+.lista-categorias h4 {
+  font-weight: 200;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.sin-categorias {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-weight: 200;
+}
+
+.categoria-item {
+  background: black;
+  border: 2px solid white;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoria-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.categoria-color {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+}
+
+.categoria-info span {
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.btn-eliminar-cat {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.btn-eliminar-cat:hover {
+  background: white;
+  color: black;
+}
+
+.tarea-categoria {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 12px;
+  font-size: 12px;
+  border: 1px solid;
+  font-weight: 200;
+}
+
+.btn-email {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-email:hover {
+  background: white;
+  color: black;
+}
+
+.btn-email-activo {
+  background: white !important;
+  color: black !important;
+}
