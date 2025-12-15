@@ -34,9 +34,11 @@ function Home() {
   }, []);
 
   const cargarTareas = async (usuarioId) => {
+    console.log("USUARIO ID:", usuarioId);
     try {
-      const response = await axios.get(`http://localhost:8080/api/tareas/usuario/${usuarioId}`);
-      console.log("TAREAS CARGADAS:", response.data);  // AÑADE ESTO
+      const response = await axios.get(
+        `https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/usuario/${usuarioId}`
+      );
       setTareas(response.data);
     } catch (error) {
       console.error('Error al cargar tareas:', error);
@@ -45,7 +47,7 @@ function Home() {
 
   const cargarCategorias = async (usuarioId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/categorias/usuario/${usuarioId}`);
+      const response = await axios.get(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/categorias/usuario/${usuarioId}`);
       setCategorias(response.data);
     } catch (error) {
       console.error('Error al cargar categorías:', error);
@@ -64,7 +66,7 @@ function Home() {
         categoriaId: nuevaTarea.categoriaId ? parseInt(nuevaTarea.categoriaId) : null
       };
 
-      await axios.post('http://localhost:8080/api/tareas', tareaData);
+      await axios.post('https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas', tareaData);
 
       setNuevaTarea({ titulo: '', descripcion: '', prioridad: 'media', fechaLimite: '', categoriaId: '' });
       setMostrarFormulario(false);
@@ -77,7 +79,7 @@ function Home() {
   const crearCategoria = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/api/categorias', {
+      await axios.post('https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/categorias', {
         usuarioId: usuario.id,
         nombre: nuevaCategoria.nombre,
         color: nuevaCategoria.color
@@ -94,7 +96,7 @@ function Home() {
   const eliminarCategoria = async (categoriaId) => {
     if (window.confirm('¿Eliminar esta categoría?')) {
       try {
-        await axios.delete(`http://localhost:8080/api/categorias/${categoriaId}`);
+        await axios.delete(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/categorias/${categoriaId}`);
         cargarCategorias(usuario.id);
       } catch (error) {
         console.error('Error al eliminar categoría:', error);
@@ -126,7 +128,7 @@ function Home() {
         categoriaId: nuevaTarea.categoriaId ? parseInt(nuevaTarea.categoriaId) : null
       };
 
-      await axios.put(`http://localhost:8080/api/tareas/${tareaEditando.id}`, tareaData);
+      await axios.put(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/${tareaEditando.id}`, tareaData);
 
       setNuevaTarea({ titulo: '', descripcion: '', prioridad: 'media', fechaLimite: '', categoriaId: '' });
       setMostrarFormulario(false);
@@ -145,7 +147,7 @@ function Home() {
 
   const cambiarEstado = async (tareaId, completada) => {
     try {
-      await axios.put(`http://localhost:8080/api/tareas/${tareaId}/estado`, {
+      await axios.put(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/${tareaId}/estado`, {
         completada: !completada
       });
       cargarTareas(usuario.id);
@@ -157,7 +159,7 @@ function Home() {
   const eliminarTarea = async (tareaId) => {
     if (window.confirm('¿Eliminar esta tarea?')) {
       try {
-        await axios.delete(`http://localhost:8080/api/tareas/${tareaId}`);
+        await axios.delete(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/${tareaId}`);
         cargarTareas(usuario.id);
       } catch (error) {
         console.error('Error al eliminar tarea:', error);
@@ -167,7 +169,7 @@ function Home() {
 
   const toggleNotificaciones = async (tareaId) => {
     try {
-      const response = await axios.put(`http://localhost:8080/api/tareas/${tareaId}/notificaciones`);
+      const response = await axios.put(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/${tareaId}/notificaciones`);
       alert(response.data.mensaje);
       cargarTareas(usuario.id); // Recargar para actualizar el estado visual
     } catch (error) {

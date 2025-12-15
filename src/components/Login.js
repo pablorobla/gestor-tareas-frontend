@@ -15,8 +15,8 @@ function Login() {
     setMensaje('');
 
     const url = esRegistro
-      ? 'http://localhost:8080/api/auth/register'
-      : 'http://localhost:8080/api/auth/login';
+      ? 'https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/auth/register'
+      : 'https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/auth/login';
 
     try {
 
