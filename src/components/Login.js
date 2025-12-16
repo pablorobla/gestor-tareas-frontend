@@ -29,7 +29,8 @@ function Login() {
       setMensaje(`${response.data.mensaje || 'Éxito'}`);
 
       setNombreUsuario('');
-      setContrasena('');
+      setContrasena('');;
+      setEmail('');
 
       if (!esRegistro) {
 
