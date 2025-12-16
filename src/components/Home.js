@@ -379,6 +379,7 @@ function Home() {
               type="date"
               value={nuevaTarea.fechaLimite}
               onChange={(e) => setNuevaTarea({ ...nuevaTarea, fechaLimite: e.target.value })}
+              min={new Date().toISOString().split('T')[0]}
             />
 
             <button type="submit" className="btn-guardar">
