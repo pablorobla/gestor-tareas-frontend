@@ -25,6 +25,7 @@ function Home() {
   const [filtroEstado, setFiltroEstado] = useState('todas');
   const [filtroPrioridad, setFiltroPrioridad] = useState('todas');
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
