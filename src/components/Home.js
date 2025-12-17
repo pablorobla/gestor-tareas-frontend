@@ -185,14 +185,23 @@ function Home() {
 
   const toggleNotificaciones = async (tareaId) => {
     try {
-      const response = await axios.put(`https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/${tareaId}/notificaciones`);
-      alert(response.data.mensaje);
-      cargarTareas(usuario.id); // Recargar para actualizar el estado visual
+      await axios.put(
+        `https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/${tareaId}/notificaciones`
+      );
+
+      setTareas(prevTareas =>
+        prevTareas.map(t =>
+          t.id === tareaId
+            ? { ...t, notificacionesActivas: !t.notificacionesActivas }
+            : t
+        )
+      );
+
     } catch (error) {
       console.error('Error al cambiar notificaciones:', error);
-      alert(error.response?.data || 'Error al cambiar notificaciones');
     }
   };
+
 
   const ordenarTareas = (tipoOrden) => {
 
