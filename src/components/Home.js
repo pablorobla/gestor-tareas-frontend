@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Home.css';
 
+let ultimoOrden = null;
+
 function Home() {
   const [usuario, setUsuario] = useState(null);
   const [tareas, setTareas] = useState([]);
@@ -35,15 +37,27 @@ function Home() {
 
   const cargarTareas = async (usuarioId) => {
     console.log("USUARIO ID:", usuarioId);
+
     try {
       const response = await axios.get(
         `https://gestor-tareas-backend-d2hqg9d3cfe4bxak.spaincentral-01.azurewebsites.net/api/tareas/usuario/${usuarioId}`
       );
-      setTareas(response.data);
+
+      let tareasCargadas = response.data;
+
+      if (ultimoOrden) {
+        // reutilizas TU ordenarTareas
+        setTareas(tareasCargadas);
+        ordenarTareas(ultimoOrden);
+      } else {
+        setTareas(tareasCargadas);
+      }
+
     } catch (error) {
       console.error('Error al cargar tareas:', error);
     }
   };
+
 
   const cargarCategorias = async (usuarioId) => {
     try {
@@ -179,6 +193,9 @@ function Home() {
   };
 
   const ordenarTareas = (tipoOrden) => {
+
+    ultimoOrden = tipoOrden;
+
     let tareasOrdenadas = [...tareas];
 
     switch (tipoOrden) {
